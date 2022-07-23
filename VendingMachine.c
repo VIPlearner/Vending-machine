@@ -1,4 +1,4 @@
-#include "VendingMachine1.c"
+#include "VendingMachine.h"
 char StartMessage[10];
 int number;
 int main(){
