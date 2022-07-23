@@ -21,5 +21,5 @@ struct Products products[MAXNUMBEROFPRODUCTS] = {{250, "Coca-Cola"},
 int printAvailableProducts();
 int inputProductNumber(int numberOfAvailableProducts);
 float inputAmount();
-void checkout(float amountPaid);
+void checkout();
 

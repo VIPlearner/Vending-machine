@@ -19,12 +19,12 @@ int main(){
     //The user inputs the productNumber they want to buy and the code displays the price of the produ
     productNumber = inputProductNumber(numberOfAvailableProducts);
 
-    amountPaid = inputAmount();
-
     printf("You've picked %s\t\t\t#%.2f\n", products[productNumber-1].name, products[productNumber-1].price); 
-    checkout(amountPaid);
+
+    checkout();
+
     return 0;
-}
+    }
 }
 
 int inputProductNumber(int numberOfAvailableProducts){
@@ -63,9 +63,13 @@ float inputAmount()
     return amountPaid;
 }
 
-void checkout(float amountPaid)
+void checkout()
 {
     //This function compares the amountPaid with the price of the product
-    if (amountPaid<products[productNumber-1].price) inputAmount();
-    else printf("Purchase Successful\t\t Change:\t#%.2f", amountPaid - products[productNumber-1].price);
+    float amountPaid;
+    do
+    {
+        amountPaid = inputAmount();
+    } while (amountPaid<products[productNumber-1].price);
+    printf("Purchase Successful\t\t Change:\t#%.2f", amountPaid - products[productNumber-1].price);
 }
