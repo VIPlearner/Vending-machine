@@ -2,11 +2,11 @@
 
 char startMessage[10]; //This
 int productNumber; //this is the variable that holds the product number that the user has selected
+float amountPaid; //this holds the amount that the customer inputs into the machine
 
 int main(){
 
     // Loop until the user inputs "Hi"
-    
     do
     {
         printf("Say Hi ");
@@ -22,13 +22,11 @@ int main(){
     }
 
     //The user inputs the number of the product they want to buy and the code displays the price of the product
-    int productNumber;
     scanf("%d", &productNumber);
     printf("You've picked %s\t\t\t#%.2f\n", products[productNumber-1].name, products[productNumber-1].price); 
 
     //The code asks for an amount from the user and checks if the amount is lower or higher than the price of the product
     //If it's lower it returns an error until the user inputs a value that is above or equal to the price of the product
-    float amountPaid;
     printf("Pay for the product here: ");
     scanf("%f", &amountPaid);
     while (amountPaid < products[productNumber-1].price)
