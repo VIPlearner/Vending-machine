@@ -1,4 +1,4 @@
-#include "VendingMachine.h"
+#include "VendingMachine1.c"
 char StartMessage[10];
 int number;
 int main(){
@@ -10,20 +10,20 @@ int main(){
 
     printf("Pick from our Available Products\n");
     int i = 0;
-    while(ListOfAvailableProducts[i] != NULL){
-        printf("%d.\t%s\n ", i+1, ListOfAvailableProducts[i]);
+    while(products[i].name != NULL){
+        printf("%d.\t%s\n ", i+1, products[i].name);
         i++;
     }
     scanf("%d", &number);
-    printf("You've picked %s\t\t\t#%.2f\n", ListOfAvailableProducts[number-1], ListOfPrices[number-1]); 
-    float AmountPaid;
+    printf("You've picked %s\t\t\t#%.2f\n", products[number-1].name, products[number-1].price); 
+    float amountPaid;
     printf("Pay for the product here: ");
-    scanf("%f", &AmountPaid);
-    while (AmountPaid < ListOfPrices[number-1])
+    scanf("%f", &amountPaid);
+    while (amountPaid < products[number-1].price)
     {
         printf("Amount is too small for the Product you want to buy\n");
         printf("Pay for the product here: ");
-        scanf("%f", &AmountPaid);    
+        scanf("%f", &amountPaid);    
     }
-    printf("Purchase Successful\t\t Change:\t#%.2f", AmountPaid - ListOfPrices[number-1]);
+    printf("Purchase Successful\t\t Change:\t#%.2f", amountPaid - products[number-1].price);
 }
