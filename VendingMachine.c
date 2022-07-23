@@ -1,10 +1,9 @@
 #include "VendingMachine.h"
 
-char StartMessage[10];
-int number;
 int main(){
 
     // This code is meant to loop until the user inputs "Hi"
+    char StartMessage[10];
     do
     {
         printf("Say Hi ");
@@ -20,6 +19,7 @@ int main(){
     }
 
     //The user inputs the number of the product they want to buy and the code displays the price of the product
+    int number;
     scanf("%d", &number);
     printf("You've picked %s\t\t\t#%.2f\n", products[number-1].name, products[number-1].price); 
 
