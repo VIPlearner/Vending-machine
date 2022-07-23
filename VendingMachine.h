@@ -10,6 +10,7 @@ struct Products{
   char *name;
 };
 
+//list of all the products in the vending machine saved in a struct Products
 struct Products products[MAXNUMBEROFPRODUCTS] = {{250, "Coca-Cola"}, 
                                                   {200, "Fanta"}, 
                                                   {100, "Pure-Bliss Chocolate Wafer"},
