@@ -17,3 +17,6 @@ struct Products products[MAXNUMBEROFPRODUCTS] = {{250, "Coca-Cola"},
                                                   {50, "Noreos Biscuit"},
                                                   {100, "Schneider Biro"}
                                                   };
+
+int printAvailableProducts();
+void checkAmount();

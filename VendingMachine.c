@@ -1,39 +1,47 @@
 #include "VendingMachine.h"
 
-char startMessage[10]; //This
-int productNumber; //this is the variable that holds the product number that the user has selected
-float amountPaid; //this holds the amount that the customer inputs into the machine
+char startMessage[10];
+int productNumber; 
+int numberOfAvailableProducts;
+
 
 int main(){
 
-    // Loop until the user inputs "Hi"
+    printf("Press any key to start");
+    scanf("%c", startMessage);
+
+    numberOfAvailableProducts = printAvailableProducts();
+
     do
     {
-        printf("Say Hi ");
-        scanf("%s", startMessage);
-    } while (strcmp(startMessage, "Hi") != 0);
+        fflush(stdin);
+        printf("Input Product Number\n");
+        printf("Make sure your input tallies with the numbers on your screen\n");
+    } while (scanf("%d", &productNumber)!= 1 || productNumber<0 || productNumber>numberOfAvailableProducts);
+    
+    printf("You've picked %s\t\t\t#%.2f\n", products[productNumber-1].name, products[productNumber-1].price); 
+    checkAmount();
+}
 
-    // Display all the Products available with numbers so the user can choose the product they want to purchase
-    printf("Pick from our Available Products\n");
+int printAvailableProducts()
+{
     int i = 0;
     while(products[i].name != NULL){
         printf("%d.\t%s\n ", i+1, products[i].name);
         i++;
     }
+    return i;
+}
 
-    //The user inputs the productNumber they want to buy and the code displays the price of the product
-    scanf("%d", &productNumber);
-    printf("You've picked %s\t\t\t#%.2f\n", products[productNumber-1].name, products[productNumber-1].price); 
-
-    //The code asks for an amount from the user and checks if the amount is lower or higher than the price of the product
-    //If it's lower it returns an error until the user inputs a value that is above or equal to the price of the product
-    printf("Pay for the product here: ");
-    scanf("%f", &amountPaid);
-    while (amountPaid < products[productNumber-1].price)
+void checkAmount()
+{
+    float amountPaid; 
+    do
     {
-        printf("Amount is too small for the Product you want to buy\n");
+        fflush(stdin);
+        printf("Note: Amount to be paid should be above the price tag of the Product\n");
         printf("Pay for the product here: ");
-        scanf("%f", &amountPaid);    
-    }
+    } while (scanf("%f", &amountPaid)!= 1 || amountPaid<products[productNumber-1].price);
+
     printf("Purchase Successful\t\t Change:\t#%.2f", amountPaid - products[productNumber-1].price);
 }
