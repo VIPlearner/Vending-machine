@@ -21,7 +21,7 @@ int main(){
         i++;
     }
 
-    //The user inputs the number of the product they want to buy and the code displays the price of the product
+    //The user inputs the productNumber they want to buy and the code displays the price of the product
     scanf("%d", &productNumber);
     printf("You've picked %s\t\t\t#%.2f\n", products[productNumber-1].name, products[productNumber-1].price); 
 
