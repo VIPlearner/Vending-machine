@@ -9,6 +9,7 @@ int main(){
     while(1)
     {
     printf("Press any key to start");
+    fflush(stdin);
     scanf("%c", start_message);
 
     // Display all the Products available with numbers so the user can choose the product they want to purchase
@@ -40,13 +41,11 @@ void input_product_number(int number_of_available_products, int *input_product_n
 void print_available_products(int *number_of_available_products)
 {
     //This functions prints out all the available products
-    int i = 0;
     printf("\tProduct\t\t\t\tPrice\n");
-    while(products[i].name != NULL){
+    for(int i = 0; i<(sizeof(products)/sizeof(products[0])); i++){
         printf("%d.\t%s\t\t\t%f\n ", i+1, products[i].name, products[i].price);
-        i++;
+        *number_of_available_products = i;
     }
-    *number_of_available_products = i;
 }
 
 void input_amount(float* amount_paid)

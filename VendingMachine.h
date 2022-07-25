@@ -11,7 +11,7 @@ struct Products{
 };
 
 //list of all the products in the vending machine with their prices saved in a struct Products
-struct Products products[MAXNUMBEROFPRODUCTS] = {{250, "Coca-Cola"}, 
+struct Products products[] = {{250, "Coca-Cola"}, 
                                                   {200, "Fanta"}, 
                                                   {100, "Pure-Bliss Chocolate Wafer"},
                                                   {50, "Noreos Biscuit"},
