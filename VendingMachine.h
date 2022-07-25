@@ -18,8 +18,8 @@ struct Products products[MAXNUMBEROFPRODUCTS] = {{250, "Coca-Cola"},
                                                   {100, "Schneider Biro"}
                                                   };
 
-int printAvailableProducts();
-int inputProductNumber(int numberOfAvailableProducts);
-float inputAmount();
+void print_available_products(int *number_of_available_products);
+void input_product_number(int number_of_available_products, int *input_product_number);
+void input_amount(float *amount_paid);
 void checkout();
 
